@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
     const{login}= useContext(AuthContext)
     const[erorr,setError]= useState('')
+    const navigate= useNavigate();
+    const location= useLocation();
+    const from= location.state?.from?.pathname || '/'
     const handleSubmit=event=>{
         event.preventDefault()
         const form= event.target;
@@ -13,7 +17,8 @@ const Login = () => {
         const password= form.password.value;
         login(email,password)
         .then(res=>{
-            console.log(res.user)
+          toast.success('Signin successfull!')
+            navigate(from,{replace:true})
         })
         .catch(er=>setError(er))
     }

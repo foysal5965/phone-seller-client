@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
+import CategoryPhone from "../../Pages/CategoryPhone/CategoryPhone/CategoryPhone";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/login/Login";
 import Signup from "../../Pages/Signup/Signup";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 const router= createBrowserRouter([
     {
@@ -17,12 +19,22 @@ const router= createBrowserRouter([
                 loader:()=>fetch('http://localhost:5000/category')
             },
             {
+                path:'/home',
+                element:<Home></Home>,
+                loader:()=>fetch('http://localhost:5000/category')
+            },
+            {
                 path:'/login',
                 element:<Login></Login>
             },
             {
                 path:'/signup',
                 element:<Signup></Signup>
+            },
+            {
+                path:'/category/:id',
+                element:<PrivetRoute><CategoryPhone></CategoryPhone></PrivetRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
             },
         ]
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../../components/Buttons/PrimaryButton';
 
 const CategoryCard = ({category}) => {
     return (
@@ -10,8 +11,12 @@ const CategoryCard = ({category}) => {
     <h2 className="card-title">{category.name}</h2>
  
     <div className="card-actions justify-end">
+     <PrimaryButton    
+     classes='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100' >
+
      <Link to={`/category/${category.id}`}>
-     <button className="btn btn-primary">See all Producs</button></Link>
+     <button className="">See all Producs</button></Link>
+     </PrimaryButton>
     </div>
   </div>
 </div>

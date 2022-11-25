@@ -1,21 +1,38 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Signup = () => {
-    const {createUser}= useContext(AuthContext);
+    const {createUser,updateUser,googleSingin}= useContext(AuthContext);
     const [error, setError]= useState('')
+    const navigate= useNavigate();
+    const location= useLocation();
+    const from= location.state?.from?.pathname || '/'
+    const handleGoogleSignin=()=>{
+      googleSingin()
+      .then()
+      .catch()
+    }
     const handleSubmit=event=>{
         event.preventDefault()
         const form= event.target;
         const name= form.name.value;
         const email= form.email.value;
         const password= form.password.value;
-        console.log(name, email,password)
+        
         createUser(email,password)
         .then(res=>{
-            console.log(res.user)
+            const updatedInfo= {displayName:name}
+            updateUser(updatedInfo)
+            .then(res=>{
+              toast.success('User Created Successfully!')
+              navigate(from, {replace:true})
+            })
+            .catch(er=>console.log(er))
+            
+
         })
         .catch(er=>setError(er))
     }
@@ -98,7 +115,7 @@ const Signup = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-          <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button onClick={handleGoogleSignin} aria-label='Log in with Google' className='p-3 rounded-sm'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
