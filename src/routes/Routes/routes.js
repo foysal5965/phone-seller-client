@@ -9,6 +9,9 @@ import Login from "../../Pages/login/Login";
 import Signup from "../../Pages/Signup/Signup";
 import ErrorPage from "../../Shared/ErrorPage/ErrorPage";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import AllUsers from '../../Pages/Dashboard/AallUsers/AllUsers'
+import AdminRoute from "../AdminRoute/AdminRoute";
+import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
 
 const router= createBrowserRouter([
     {
@@ -51,7 +54,15 @@ const router= createBrowserRouter([
            {
             path:'/dashboard',
             element:<MyOrders></MyOrders>
-           }
+           },
+           {
+            path:'/dashboard/allUser',
+            element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+           },
+           {
+            path:'/dashboard/allsellers',
+            element:<AdminRoute><AllSellers></AllSellers></AdminRoute>
+           },
         ]
     }
 ])

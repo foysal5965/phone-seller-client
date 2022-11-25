@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
+import useToken from '../../components/hooks/useToken/useToken';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
@@ -10,6 +11,8 @@ const Login = () => {
     const navigate= useNavigate();
     const location= useLocation();
     const from= location.state?.from?.pathname || '/'
+   
+   
     const handleSubmit=event=>{
         event.preventDefault()
         const form= event.target;
@@ -18,9 +21,20 @@ const Login = () => {
         login(email,password)
         .then(res=>{
           toast.success('Signin successfull!')
-            navigate(from,{replace:true})
+          getAccessToken(email)
+            
         })
         .catch(er=>setError(er))
+    }
+    const getAccessToken=email=>{
+      fetch(`http://localhost:5000/jwt?email=${email}`)
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.accessToken){
+          localStorage.setItem('accessToken', data.accessToken)
+          navigate(from,{replace:true})
+        }
+      })
     }
     return(
 

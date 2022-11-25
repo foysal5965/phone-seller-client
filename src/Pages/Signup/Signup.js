@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
+import useToken from '../../components/hooks/useToken/useToken';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Signup = () => {
@@ -10,26 +11,30 @@ const Signup = () => {
     const navigate= useNavigate();
     const location= useLocation();
     const from= location.state?.from?.pathname || '/'
+    
+   
     const handleGoogleSignin=()=>{
       googleSingin()
       .then()
       .catch()
     }
+   
     const handleSubmit=event=>{
         event.preventDefault()
         const form= event.target;
         const name= form.name.value;
         const email= form.email.value;
         const password= form.password.value;
-        const selected= form.select.value;
+        const role= form.select.value;
         
         createUser(email,password)
         .then(res=>{
             const updatedInfo= {displayName:name}
             updateUser(updatedInfo)
             .then(res=>{
+              saveUser(name,email,role)
               toast.success('User Created Successfully!')
-              navigate(from, {replace:true})
+              
             })
             .catch(er=>console.log(er))
             
@@ -37,6 +42,34 @@ const Signup = () => {
         })
         .catch(er=>setError(er))
     }
+    const saveUser=(name,email,role)=>{
+      const user= {name,email,role}
+      fetch('http://localhost:5000/users',{
+        method:"post",
+        headers:{
+          "content-type":'application/json'
+        },
+        body:JSON.stringify(user)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        
+       getAccessToken(email)
+      })
+    }
+
+    const getAccessToken=email=>{
+      fetch(`http://localhost:5000/jwt?email=${email}`)
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.accessToken){
+        
+          localStorage.setItem('accessToken', data.accessToken)
+          navigate(from,{replace:true})
+        }
+      })
+    }
+  
     return (
         <div>
              <div className='flex justify-center items-center pt-8'>
