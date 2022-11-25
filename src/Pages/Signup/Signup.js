@@ -21,6 +21,7 @@ const Signup = () => {
         const name= form.name.value;
         const email= form.email.value;
         const password= form.password.value;
+        const selected= form.select.value;
         
         createUser(email,password)
         .then(res=>{
@@ -65,6 +66,13 @@ const Signup = () => {
                 data-temp-mail-org='0'
               />
             </div>
+            <label htmlFor='email' className='block mb-2 text-sm'>
+                Select A Type
+              </label>
+            <select name='select' className="select select-bordered w-full max-w-xs">
+                <option>User</option>
+                <option>Seller</option>    
+              </select>
            
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>

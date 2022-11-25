@@ -1,20 +1,49 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import { AuthContext } from '../../Context/AuthProvider';
 
-const OrderModal = ({ phone }) => {
-    const { name, location, resel_price, original_price, yearsOf_use } = phone
+const OrderModal = ({ phone ,setPhone}) => {
+    const { name, location, resel_price, original_price, yearsOf_use,img } = phone
     const { user } = useContext(AuthContext)
     const handleSubmit=event=>{
         event.preventDefault()
         const form= event.target;
-        const name= form.name.value;
+        const CustomerName= form.name.value;
         const email= form.email.value
         const location= form.location.value
         const original_price= form.originalPrice.value;
         const resel_price= form.reselPrice.value;
         const phone= form.phone.value;
         console.log(name,email,location,original_price,resel_price,phone)
+        const booking={
+            mobileName:name,
+            CustomerName,
+            email,
+            phone,
+            original_price,
+            resel_price,
+            location,img
+        }
+        fetch('http://localhost:5000/orders',{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(booking)
+
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.acknowledged){
+                toast.success('Your Booking is placed')
+                setPhone(null)
+            }
+           
+            
+        })
+     
+       
     }
     return (
         <>
