@@ -12,6 +12,9 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import AllUsers from '../../Pages/Dashboard/AallUsers/AllUsers'
 import AdminRoute from "../AdminRoute/AdminRoute";
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
+import SellerRoute from "../SellerRoute/SellerRoute";
+import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import Blog from "../../Pages/Blogs/Blog";
 
 const router= createBrowserRouter([
     {
@@ -38,6 +41,10 @@ const router= createBrowserRouter([
                 element:<Signup></Signup>
             },
             {
+                path:'/blog',
+                element:<Blog></Blog>
+            },
+            {
                 path:'/category/:id',
                 element:<PrivetRoute><CategoryPhone></CategoryPhone></PrivetRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
@@ -62,6 +69,10 @@ const router= createBrowserRouter([
            {
             path:'/dashboard/allsellers',
             element:<AdminRoute><AllSellers></AllSellers></AdminRoute>
+           },
+           {
+            path:'/dashboard/addproducts',
+            element:<SellerRoute><AddProduct></AddProduct></SellerRoute>
            },
         ]
     }
