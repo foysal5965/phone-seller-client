@@ -16,6 +16,7 @@ import SellerRoute from "../SellerRoute/SellerRoute";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import Blog from "../../Pages/Blogs/Blog";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 const router= createBrowserRouter([
     {
@@ -78,6 +79,11 @@ const router= createBrowserRouter([
            {
             path:'/dashboard/myproducts',
             element:<SellerRoute><MyProducts></MyProducts></SellerRoute>
+           },
+           {
+            path:'/dashboard/payment/:id',
+            element:<Payment></Payment>,
+            loader:({params})=>fetch(`http://localhost:5000/orders/payment/${params.id}`)
            },
         ]
     }

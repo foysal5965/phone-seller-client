@@ -1,6 +1,7 @@
 import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import DisplayLoading from '../../../Shared/DisplayLoading/DislplayLoading'
 const MyOrders = () => {
@@ -45,6 +46,10 @@ const MyOrders = () => {
                                 </div>
 
                             </div>
+                            
+                                <Link to={`/dashboard/payment/${order._id}`}>
+                                 <button disabled={order.paid} className='btn  rounded-md hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white '>Pay</button>
+                                </Link>
                             
                         </div>
                         <p className='text-white'></p>
