@@ -12,7 +12,9 @@ const AllUsers = () => {
             return data
         }
     })
+   
     const handleDeleteUser= id=>{
+       
         fetch(`http://localhost:5000/users/${id}`,{
             method:'DELETE',
             headers:{
@@ -24,6 +26,7 @@ const AllUsers = () => {
             toast.success('User deleted successfully')
             refetch()
         })
+      
     }
     return (
         <div>
