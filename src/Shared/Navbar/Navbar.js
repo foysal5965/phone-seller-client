@@ -32,7 +32,7 @@ const Navbar = () => {
 
 
     <div>
-      <div className="navbar bg-base-100 flex justify-between mt-6">
+      <div className="navbar rounded hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white flex justify-between mt-4">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
