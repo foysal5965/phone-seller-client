@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import PrimaryButton from '../../../components/Buttons/PrimaryButton';
 const CheckoutForm = ({order}) => {
     const [cardError, setCardError] = useState('')
   const [success, setSuccess] = useState('')
@@ -83,8 +84,9 @@ const CheckoutForm = ({order}) => {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement
+    <div>
+      <form onSubmit={handleSubmit}>
+      <CardElement className='border w-full'
         options={{
           style: {
             base: {
@@ -100,17 +102,21 @@ const CheckoutForm = ({order}) => {
           },
         }}
       />
-      <button type="submit" className='btn btn-primary mt-6' disabled={!stripe || !clientSecret}>
+      <PrimaryButton
+      classes='hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white w-full'
+      ><button type="submit"  disabled={!stripe || !clientSecret}>
         Pay
-      </button>
+      </button></PrimaryButton>
       <p>{cardError}</p>
-     {
+    
+    </form>
+    {
       success && <div>
         <p>{success}</p>
         <p>Your transactionid: {transactionId}</p>
       </div>
      }
-    </form>
+    </div>
   );
 };
 

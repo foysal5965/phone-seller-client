@@ -4,6 +4,11 @@ import PrimaryButton from '../../../components/Buttons/PrimaryButton';
 
 const MyProductsCard = ({product,refetch}) => {
     const [disabled, setDisabled]= useState('')
+    const {_id}=product
+   const advertiseProduct={
+    product,
+    advertiseId:product._id
+   }
     const handleAdvertise=()=>{
         fetch(`http://localhost:5000/advertisedproducts`,{
             method:"post",
@@ -14,13 +19,14 @@ const MyProductsCard = ({product,refetch}) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            if(data.acknowledged){
-                toast.success('Your Advertise Done. Please Check The Home Page')
-                setDisabled(data.acknowledged)
-                refetch()
-            }
+         
+            toast.success('Your Advertise Done. Please Check The Home Page')
+            setDisabled(data.acknowledged)
+       
         })
+
       }
+    
     return (
         <div>
             <li className="flex flex-col py-6 sm:flex-row sm:justify-between">

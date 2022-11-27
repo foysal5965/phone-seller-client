@@ -8,9 +8,12 @@ const Payment = () => {
     const order= useLoaderData()
     return (
         <div className='w-96 my-12'>
-                <Elements stripe={stripePromise}>
+            <h2 className='text-xl'>Payment Your Price</h2>
+                <div className='mt-6'>
+                <Elements  stripe={stripePromise}>
                     <CheckoutForm order={order}/>
                 </Elements>
+                </div>
             </div>
     );
 };

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import ConfirmationModal from '../../../Shared/confirmationModal/ConfirmationModal';
 
 
 import AdvertiseProductCard from './AdvertiseProductCard';
@@ -27,7 +28,12 @@ const AdvertisedProduct = () => {
                 }
                 
             </div>
-           
+           {
+            advertise && <ConfirmationModal
+            advertise={advertise}
+            setAdvertise={setAdvertise}
+            ></ConfirmationModal>
+           }
         </div>
     );
 };

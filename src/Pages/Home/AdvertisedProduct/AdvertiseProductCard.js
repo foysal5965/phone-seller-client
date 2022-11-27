@@ -3,6 +3,7 @@ import PrimaryButton from '../../../components/Buttons/PrimaryButton';
 
 const AdvertiseProductCard = ({product,setAdvertise}) => {
     const{img, name,original_price, resel_price,location ,yearsOf_use}= product
+    console.log(product)
     return (
         <div>
             {/* <div className="card card-side bg-base-100 shadow-xl">
@@ -26,10 +27,10 @@ const AdvertiseProductCard = ({product,setAdvertise}) => {
    
     <div className="card-actions flex items-center justify-start">
       <PrimaryButton
-      classes=" btn rounded-md hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white"
+      classes=""
       
       >
-        <label onClick={()=>setAdvertise(product)} htmlFor="my-modal-2">Book Now</label>
+         <label htmlFor="confirmation-modal" onClick={()=>setAdvertise(product)} className=" btn rounded-md hover:text-gray-100 bg-gradient-to-r from-emerald-500 to-lime-500 text-white">Book Now</label>
       </PrimaryButton>
       
     </div>
