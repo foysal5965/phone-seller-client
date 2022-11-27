@@ -1,9 +1,12 @@
 import React from 'react';
+import DislplayLoading from '../../../Shared/DisplayLoading/DislplayLoading';
 
-const AllSellersCart = ({seller,i,handleDeleteSeller}) => {
+const AllSellersCart = ({seller,i,handleDeleteSeller,isLoading}) => {
     console.log(seller)
     const{name,email,_id}=seller
+    
     return (
+     
         <>
           <tr>
         <th>{i+1}</th>

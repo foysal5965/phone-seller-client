@@ -17,15 +17,17 @@ const AdvertiseProductCard = ({product,setAdvertise}) => {
 <div className="card card-compact w-96 bg-base-100 shadow-xl">
   <figure><img src={img} alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="card-title">{name}</h2>
+   <div className='text-center'>
+   <h2 className="text-xl font-semibold">{name}</h2>
     
-    <p>Original Price: {original_price}</p>
-    <p>New Price: {resel_price}</p>
+    <p>Original Price: {original_price}$</p>
+    <p>New Price: {resel_price}$</p>
     <p>Location: {location}</p>
-    <p>Location: {location}</p>
+    
     <p>Year of Purchase: {yearsOf_use}</p>
+   </div>
    
-    <div className="card-actions flex items-center justify-start">
+    <div className="card-actions flex items-center justify-center">
       <PrimaryButton
       classes=""
       

@@ -4,27 +4,31 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import useToken from '../../components/hooks/useToken/useToken';
 import { AuthContext } from '../../Context/AuthProvider';
+import DislplayLoading from '../../Shared/DisplayLoading/DislplayLoading';
 
 const Login = () => {
-    const{login}= useContext(AuthContext)
+    const{login,loading}= useContext(AuthContext)
     const[erorr,setError]= useState('')
     const navigate= useNavigate();
     const location= useLocation();
     const from= location.state?.from?.pathname || '/'
    
-   
+  
     const handleSubmit=event=>{
         event.preventDefault()
         const form= event.target;
         const email= form.email.value;
         const password= form.password.value;
+        if(loading){
+          return <DislplayLoading></DislplayLoading>
+         }
         login(email,password)
         .then(res=>{
           toast.success('Signin successfull!')
           getAccessToken(email)
             
         })
-        .catch(er=>setError(er))
+        .catch(er=>setError(er.message))
     }
     const getAccessToken=email=>{
       fetch(`http://localhost:5000/jwt?email=${email}`)
@@ -83,7 +87,9 @@ const Login = () => {
               />
             </div>
           </div>
-
+              {
+                erorr && <h2 className='text-xl font-sans text-red-700'>{erorr}</h2>
+              }
           <div>
             <PrimaryButton
               type='submit'

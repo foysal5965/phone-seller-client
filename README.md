@@ -72,3 +72,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <li>
 Description of assignment
 </li>
+<li>This is phone reseleing website</li>
+<li>The home page have a resposive navbar and also a banner</li>
+<li>Then shows the categris of phones which have the website</li>
+<li>if user click the show all product they will see all products that the category have. Then if the user click the book now button it will open up a modal and he/she can book the product. If the user is a normal user he/she see the dashboard route on the navbar. In the dashboard user can see the product which one he/she booked. If user want they pay the price for clicking the pay button</li>
+
+<li>If user signup as a seller he/she see the myproducts and add products route. If seller want to add a product he can go to add product route and added products. In myproducts route seller will see the all products of his own. If he want he can advertised it</li>
+
+<li>In this website has one admin right now. If the admin login the website he/will see the all seller and alluser in the dashboard route. If he want he can delete a user or seller</li>
+
+<li>admin email: foysalahmedd5965@gmail.com</li>
+<li>admin password: 147258</li>

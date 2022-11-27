@@ -4,12 +4,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../../components/Buttons/PrimaryButton';
 import useToken from '../../components/hooks/useToken/useToken';
 import { AuthContext } from '../../Context/AuthProvider';
-
+import DisplayLoading from '../../Shared/DisplayLoading/DislplayLoading';
 const Signup = () => {
-    const {createUser,updateUser,googleSingin}= useContext(AuthContext);
+    const {createUser,updateUser,googleSingin,loading}= useContext(AuthContext);
     const [error, setError]= useState('')
     const navigate= useNavigate();
     const location= useLocation();
+    
     const from= location.state?.from?.pathname || '/'
     
    
@@ -18,6 +19,7 @@ const Signup = () => {
       .then()
       .catch()
     }
+    
    
     const handleSubmit=event=>{
         event.preventDefault()
@@ -26,7 +28,9 @@ const Signup = () => {
         const email= form.email.value;
         const password= form.password.value;
         const role= form.select.value;
-        
+        if(loading){
+          return <DisplayLoading></DisplayLoading>
+        }
         createUser(email,password)
         .then(res=>{
             const updatedInfo= {displayName:name}

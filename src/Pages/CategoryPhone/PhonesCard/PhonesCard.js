@@ -21,8 +21,8 @@ const PhonesCard = ({phone,setPhone}) => {
     
     <div className="card-actions justify-center">
       <PrimaryButton
-      classes='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100 mt-6'>
-       <label htmlFor="my-modal"
+      classes='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 bg-gray-700 text-white text-gray-100 mt-6'>
+       <label htmlFor="my-modal" className=' '
        onClick={()=>setPhone(phone)}
        >Buy Now</label>
       </PrimaryButton>
