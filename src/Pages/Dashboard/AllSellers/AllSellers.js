@@ -11,14 +11,14 @@ const AllSellers = () => {
         queryKey:['users'],
         queryFn:async()=>{
             
-            const allusers = await fetch('http://localhost:5000/sellers')
+            const allusers = await fetch('https://phone-saler.vercel.app/sellers')
             const data= await allusers.json();
             return data
         }
     })
    
     const handleDeleteSeller= id=>{
-        fetch(`http://localhost:5000/sellers/${id}`,{
+        fetch(`https://phone-saler.vercel.app/sellers/${id}`,{
             method:'DELETE',
             headers:{
                 authorization:`bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +43,7 @@ const AllSellers = () => {
         <th></th>
         <th>Name</th>
         <th>Email</th>
-        <th>Delete Saler</th>
+        <th>Delete Saller</th>
       </tr>
     </thead>
     <tbody>

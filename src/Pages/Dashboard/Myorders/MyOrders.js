@@ -7,7 +7,7 @@ import DisplayLoading from '../../../Shared/DisplayLoading/DislplayLoading'
 const MyOrders = () => {
     const {user,loading}= useContext(AuthContext)
     
-    const url= `http://localhost:5000/orders/?email=${user?.email}`
+    const url= `https://phone-saler.vercel.app/orders/?email=${user?.email}`
     const{data:orders=[]}=useQuery({
         queryKey:['orders', user?.email],
         queryFn:async()=>{

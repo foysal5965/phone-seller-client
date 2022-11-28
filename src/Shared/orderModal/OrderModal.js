@@ -25,7 +25,7 @@ const OrderModal = ({ phone ,setPhone}) => {
             resel_price,
             location,img
         }
-        fetch('http://localhost:5000/orders',{
+        fetch('https://phone-saler.vercel.app/orders',{
             method:"POST",
             headers:{
                 "content-type":"application/json"

@@ -10,7 +10,7 @@ const AdvertisedProduct = () => {
     const{data:advertisedProducts=[],refetch}=useQuery({
         queryKey:['users'],
         queryFn:async()=>{
-            const allusers = await fetch('http://localhost:5000/advertisedproducts')
+            const allusers = await fetch('https://phone-saler.vercel.app/advertisedproducts')
             const data= await allusers.json();
             return data
         }

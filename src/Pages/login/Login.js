@@ -32,7 +32,7 @@ const Login = () => {
         .catch(er=>setError(er.message))
     }
     const getAccessToken=email=>{
-      fetch(`http://localhost:5000/jwt?email=${email}`)
+      fetch(`https://phone-saler.vercel.app/jwt?email=${email}`)
       .then(res=>res.json())
       .then(data=>{
         if(data.accessToken){

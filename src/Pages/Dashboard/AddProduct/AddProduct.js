@@ -39,7 +39,7 @@ const navigate= useNavigate()
             yearsOf_use: data.yearsOfpurchase,
             img:imageData.data.url
           }
-          fetch('http://localhost:5000/products',{
+          fetch('https://phone-saler.vercel.app/products',{
             method:"POST",
             headers:{
                 'content-type':'application/json',
@@ -60,7 +60,7 @@ const navigate= useNavigate()
 
   }
   return (
-    <div className='flex  items-center pt-8'>
+    <div className='flex  items-center pt-8 ml-6'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
           <h1 className='my-3 text-4xl font-bold'>Add A New Product</h1>
@@ -75,7 +75,7 @@ const navigate= useNavigate()
           <div className='space-y-4'>
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
-                Seler
+                Seller
               </label>
               <input
                 {...register("seller")}

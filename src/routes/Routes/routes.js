@@ -27,12 +27,12 @@ const router= createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/category')
+                loader:()=>fetch('https://phone-saler.vercel.app/category')
             },
             {
                 path:'/home',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/category')
+                loader:()=>fetch('https://phone-saler.vercel.app/category')
             },
             {
                 path:'/login',
@@ -49,7 +49,7 @@ const router= createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<PrivetRoute><CategoryPhone></CategoryPhone></PrivetRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+                loader:({params})=>fetch(`https://phone-saler.vercel.app/category/${params.id}`)
             },
         ]
 
@@ -83,7 +83,7 @@ const router= createBrowserRouter([
            {
             path:'/dashboard/payment/:id',
             element:<Payment></Payment>,
-            loader:({params})=>fetch(`http://localhost:5000/orders/payment/${params.id}`)
+            loader:({params})=>fetch(`https://phone-saler.vercel.app/orders/payment/${params.id}`)
            },
         ]
     }

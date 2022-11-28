@@ -10,7 +10,7 @@ const MyProductsCard = ({product,refetch}) => {
     advertiseId:product._id
    }
     const handleAdvertise=()=>{
-        fetch(`http://localhost:5000/advertisedproducts`,{
+        fetch(`https://phone-saler.vercel.app/advertisedproducts`,{
             method:"post",
             headers:{
                 "content-type":"application/json"

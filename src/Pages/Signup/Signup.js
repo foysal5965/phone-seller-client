@@ -48,7 +48,7 @@ const Signup = () => {
     }
     const saveUser=(name,email,role)=>{
       const user= {name,email,role}
-      fetch('http://localhost:5000/users',{
+      fetch('https://phone-saler.vercel.app/users',{
         method:"post",
         headers:{
           "content-type":'application/json'
@@ -63,7 +63,7 @@ const Signup = () => {
     }
 
     const getAccessToken=email=>{
-      fetch(`http://localhost:5000/jwt?email=${email}`)
+      fetch(`https://phone-saler.vercel.app/jwt?email=${email}`)
       .then(res=>res.json())
       .then(data=>{
         if(data.accessToken){
