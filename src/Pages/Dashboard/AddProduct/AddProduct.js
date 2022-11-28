@@ -75,7 +75,7 @@ const navigate= useNavigate()
           <div className='space-y-4'>
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
-                Seller
+                Seler
               </label>
               <input
                 {...register("seller")}
@@ -109,7 +109,7 @@ const navigate= useNavigate()
             </div>
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
-                Products name
+                Products Name
               </label>
               <input
                 {...register("name")}

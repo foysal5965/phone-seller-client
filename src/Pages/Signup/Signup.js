@@ -106,7 +106,7 @@ const Signup = () => {
             <label htmlFor='email' className='block mb-2 text-sm'>
                 Select A Type
               </label>
-            <select name='select' className="select select-bordered w-full max-w-xs">
+            <select required name='select' className="select select-bordered w-full max-w-xs">
                 <option>User</option>
                 <option>Seller</option>    
               </select>

@@ -43,7 +43,7 @@ const AllSellers = () => {
         <th></th>
         <th>Name</th>
         <th>Email</th>
-        <th>Delete Seller</th>
+        <th>Delete Saler</th>
       </tr>
     </thead>
     <tbody>
