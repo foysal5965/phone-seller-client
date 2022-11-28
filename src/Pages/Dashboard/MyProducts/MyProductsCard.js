@@ -24,8 +24,7 @@ const MyProductsCard = ({product,refetch}) => {
             setDisabled(data.acknowledged)
        
         })
-
-      }
+    }
     
     return (
         <div>

@@ -24,8 +24,9 @@ const Login = () => {
          }
         login(email,password)
         .then(res=>{
-          toast.success('Signin successfull!')
           getAccessToken(email)
+          toast.success('Signin successfull!')
+          
             
         })
         .catch(er=>setError(er.message))
