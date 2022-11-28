@@ -10,7 +10,9 @@ const AllSellers = () => {
     const{data:sellers=[],refetch,isLoading}=useQuery({
         queryKey:['users'],
         queryFn:async()=>{
-            
+            if(isLoading){
+                return <DislplayLoading></DislplayLoading>
+            }
             const allusers = await fetch('https://phone-saler.vercel.app/sellers')
             const data= await allusers.json();
             return data

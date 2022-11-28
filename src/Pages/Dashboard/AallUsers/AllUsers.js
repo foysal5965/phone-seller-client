@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
+import DislplayLoading from '../../../Shared/DisplayLoading/DislplayLoading';
 import AllUsersCard from './AllUsersCard';
 
 const AllUsers = () => {
-    const{data:users=[],refetch}=useQuery({
+    const{data:users=[],refetch,isLoading}=useQuery({
         queryKey:['users'],
         queryFn:async()=>{
+            if(isLoading){
+                return <DislplayLoading></DislplayLoading>
+            }
             const allusers = await fetch('https://phone-saler.vercel.app/users')
             const data= await allusers.json();
             return data
