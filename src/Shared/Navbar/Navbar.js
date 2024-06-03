@@ -1,32 +1,37 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useActionData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
-
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
-  const {logOut,googleSingin,user}=useContext(AuthContext)
-  const handleLogOut=()=>{
+  const { logOut, googleSingin, user } = useContext(AuthContext)
+  const handleLogOut = () => {
     logOut()
-    .then(res=>{
-     
-    })
+      .then(res => {
+
+      })
   }
-  const handleGoogleSignin=()=>{
+  const handleGoogleSignin = () => {
     googleSingin()
-    .then()
-    .catch()
+      .then()
+      .catch()
   }
-  const menuItem=<>
-  <li><Link className='text-white' to='/home'>Home</Link></li>
-  <li><Link to='/blog'>Blog</Link></li>
-  {user?.uid ?
-<> <li><Link to='/dashboard'>Dashboard</Link></li>
-  <li><button onClick={handleLogOut}>Logout</button></li></>  :
-  <li><Link to='/login'>Login</Link></li>
- }
- 
-  
+  const [nav, setNav ]= useState(true)
+
+    const handleNav =()=>{
+        setNav(!nav)
+    }
+  const menuItem = <>
+    <li><Link className='text-white' to='/home'>Home</Link></li>
+    <li><Link to='/blog'>Blog</Link></li>
+    {user?.uid ?
+      <> <li><Link to='/dashboard'>Dashboard</Link></li>
+        <li><button onClick={handleLogOut}>Logout</button></li></> :
+      <li><Link to='/login'>Login</Link></li>
+    }
+
+
   </>
   return (
 
@@ -57,6 +62,8 @@ const Navbar = () => {
 
       </div>
     </div>
+
+    
 
   );
 };

@@ -5,10 +5,10 @@ import PrimaryButton from '../../components/Buttons/PrimaryButton';
 const CategoryCard = ({category}) => {
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src={category.image} alt="Shoes" /></figure>
+            <div className="card card-compact w-96 bg-base-100 shadow-xl text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600 " >
+  <figure><img className='rounded-full shadow-md shadow-purple-400 p-6 cursor-pointer hover:scale-100 ease-in duration-300 mx-6 my-2' src={category.image} alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="text-xl font-bold text-center">{category.name}</h2>
+    
  
     <div className="card-actions justify-center">
      <PrimaryButton    

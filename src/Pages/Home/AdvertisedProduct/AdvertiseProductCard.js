@@ -3,7 +3,7 @@ import PrimaryButton from '../../../components/Buttons/PrimaryButton';
 
 const AdvertiseProductCard = ({product,setAdvertise}) => {
     const{img, name,original_price, resel_price,location ,yearsOf_use}= product
-    console.log(product)
+    // console.log(product)
     return (
         <div>
             {/* <div className="card card-side bg-base-100 shadow-xl">
@@ -14,8 +14,8 @@ const AdvertiseProductCard = ({product,setAdvertise}) => {
     
   </div>
 </div> */}
-<div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src={img} alt="Shoes" /></figure>
+<div className="card card-compact w-96 bg-base-100 shadow-xl text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
+  <figure><img className='rounded-full shadow-md shadow-purple-400 p-6 cursor-pointer hover:scale-100 ease-in duration-300 mx-6 my-2'src={img} alt="Shoes" /></figure>
   <div className="card-body">
    <div className='text-center'>
    <h2 className="text-xl font-semibold">{name}</h2>
