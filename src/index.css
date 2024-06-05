@@ -9,10 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@layer base {
-  body {
-    @apply bg-[#010313] text-[#fff] tracking-wide}
-  }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

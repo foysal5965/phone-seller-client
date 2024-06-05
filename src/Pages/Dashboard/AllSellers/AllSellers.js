@@ -13,14 +13,14 @@ const AllSellers = () => {
             if(isLoading){
                 return <DislplayLoading></DislplayLoading>
             }
-            const allusers = await fetch('https://phone-saler.vercel.app/sellers')
+            const allusers = await fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/sellers')
             const data= await allusers.json();
             return data
         }
     })
    
     const handleDeleteSeller= id=>{
-        fetch(`https://phone-saler.vercel.app/sellers/${id}`,{
+        fetch(`https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/sellers/${id}`,{
             method:'DELETE',
             headers:{
                 authorization:`bearer ${localStorage.getItem('accessToken')}`

@@ -4,7 +4,7 @@ const useAdmin=email=>{
     const [isAdmin,setIsAdmin]= useState(false)
     const[isAdminLoading,setIsAdminLoading]= useState(true)
     useEffect(()=>{
-        fetch(`https://phone-saler.vercel.app/users/admin/${email}`)
+        fetch(`https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/users/admin/${email}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)

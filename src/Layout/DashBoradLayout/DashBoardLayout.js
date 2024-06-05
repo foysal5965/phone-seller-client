@@ -4,6 +4,7 @@ import useAdmin from '../../components/hooks/useAdmin/useAdmin';
 import useSeller from '../../components/hooks/useSeller/useSeller';
 import { AuthContext } from '../../Context/AuthProvider';
 import Navbar from '../../Shared/Navbar/Navbar';
+import { FaArrowRight } from "react-icons/fa";
 
 const DashBoardLayout = () => {
     const { user } = useContext(AuthContext)
@@ -12,7 +13,10 @@ const DashBoardLayout = () => {
     return (
         <>
             <Navbar></Navbar>
-
+            <div >
+                {/* <FaArrowRight htmlFor="dashboard-drawer" className='btn ' /> */}
+                <label htmlFor="dashboard-drawer" className="btn w-40 "><FaArrowRight/></label>
+                </div>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
@@ -20,10 +24,11 @@ const DashBoardLayout = () => {
 
 
                 </div>
+               
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-
+                    
                         {user && <li><Link className='text-xl font-semibold' to='/dashboard'>My Orders</Link></li>}
                         {
                             isAdmin && <>

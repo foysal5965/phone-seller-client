@@ -27,12 +27,12 @@ const router= createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('https://phone-saler.vercel.app/category')
+                loader:()=>fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/category')
             },
             {
                 path:'/home',
                 element:<Home></Home>,
-                loader:()=>fetch('https://phone-saler.vercel.app/category')
+                loader:()=>fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/category')
             },
             {
                 path:'/login',
@@ -49,7 +49,7 @@ const router= createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<PrivetRoute><CategoryPhone></CategoryPhone></PrivetRoute>,
-                loader:({params})=>fetch(`https://phone-saler.vercel.app/category/${params.id}`)
+                loader:({params})=>fetch(`https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/category/${params.id}`)
             },
         ]
 
@@ -61,7 +61,7 @@ const router= createBrowserRouter([
         errorElement:<ErrorPage></ErrorPage>,
         children:[
            {
-            path:'/dashboard',
+            path:'/dashboard/my-orders',
             element:<MyOrders></MyOrders>
            },
            {
@@ -83,7 +83,7 @@ const router= createBrowserRouter([
            {
             path:'/dashboard/payment/:id',
             element:<Payment></Payment>,
-            loader:({params})=>fetch(`https://phone-saler.vercel.app/orders/payment/${params.id}`)
+            loader:({params})=>fetch(`https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/orders/payment/${params.id}`)
            },
         ]
     }

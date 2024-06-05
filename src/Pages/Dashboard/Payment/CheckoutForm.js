@@ -12,7 +12,7 @@ const CheckoutForm = ({order}) => {
   
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://phone-saler.vercel.app/create/payment/intent", {
+    fetch("https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/create/payment/intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -66,7 +66,7 @@ const CheckoutForm = ({order}) => {
         transactionId:paymentIntent.id,
         orderId:_id
       }
-      fetch('https://phone-saler.vercel.app/payments',{
+      fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/payments',{
         method:"POST",
         headers:{
             "content-type":"application/json"

@@ -25,7 +25,7 @@ const ConfirmationModal = ({advertise,setAdvertise}) => {
             resel_price,
             location,img
         }
-        fetch('https://phone-saler.vercel.app/orders',{
+        fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/orders',{
             method:"POST",
             headers:{
                 "content-type":"application/json"

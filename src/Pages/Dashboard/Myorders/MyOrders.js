@@ -7,7 +7,7 @@ import DisplayLoading from '../../../Shared/DisplayLoading/DislplayLoading'
 const MyOrders = () => {
     const {user,loading}= useContext(AuthContext)
     
-    const url= `https://phone-saler.vercel.app/orders/?email=${user?.email}`
+    const url= `https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/orders/?email=${user?.email}`
     const{data:orders=[]}=useQuery({
         queryKey:['orders', user?.email],
         queryFn:async()=>{
@@ -23,6 +23,7 @@ const MyOrders = () => {
     if(loading){
         return <DisplayLoading></DisplayLoading>
     }
+    
     return (
         <div>
             <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100 mt-6">

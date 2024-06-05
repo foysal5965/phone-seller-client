@@ -39,7 +39,7 @@ const navigate= useNavigate()
             yearsOf_use: data.yearsOfpurchase,
             img:imageData.data.url
           }
-          fetch('https://phone-saler.vercel.app/products',{
+          fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/products',{
             method:"POST",
             headers:{
                 'content-type':'application/json',

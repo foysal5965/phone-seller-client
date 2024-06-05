@@ -5,21 +5,21 @@ import DislplayLoading from '../../../Shared/DisplayLoading/DislplayLoading';
 import AllUsersCard from './AllUsersCard';
 
 const AllUsers = () => {
-    const{data:users=[],refetch,isLoading}=useQuery({
-        queryKey:['users'],
-        queryFn:async()=>{
-            if(isLoading){
-                return <DislplayLoading></DislplayLoading>
+    const { data: users = [], refetch, isLoading } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const response = await fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/users');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-            const allusers = await fetch('https://phone-saler.vercel.app/users')
-            const data= await allusers.json();
-            return data
+            const data = await response.json();
+            return data;
         }
-    })
-   
+    });
+   console.log(users)
     const handleDeleteUser= id=>{
        
-        fetch(`https://phone-saler.vercel.app/users/${id}`,{
+        fetch(`https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/users/${id}`,{
             method:'DELETE',
             headers:{
                 authorization:`bearer ${localStorage.getItem('accessToken')}`
@@ -49,7 +49,7 @@ const AllUsers = () => {
     </thead>
     <tbody>
    {
-    users.map((user,i)=> <AllUsersCard
+    users?.map((user,i)=> <AllUsersCard
     key={user._id}
     user={user}
     i={i}

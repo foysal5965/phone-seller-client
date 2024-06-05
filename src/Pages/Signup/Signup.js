@@ -28,6 +28,7 @@ const Signup = () => {
         const email= form.email.value;
         const password= form.password.value;
         const role= form.select.value;
+       
         if(loading){
           return <DisplayLoading></DisplayLoading>
         }
@@ -48,7 +49,7 @@ const Signup = () => {
     }
     const saveUser=(name,email,role)=>{
       const user= {name,email,role}
-      fetch('https://phone-saler.vercel.app/users',{
+      fetch('https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/users',{
         method:"post",
         headers:{
           "content-type":'application/json'
@@ -58,12 +59,12 @@ const Signup = () => {
       .then(res=>res.json())
       .then(data=>{
         
-       getAccessToken(email)
+        getAccessToken(email)
       })
     }
 
     const getAccessToken=email=>{
-      fetch(`https://phone-saler.vercel.app/jwt?email=${email}`)
+      fetch(`https://phone-saler-klsc-r1shnmu5z-foysal5965s-projects.vercel.app/jwt?email=${email}`,{method:"get"})
       .then(res=>res.json())
       .then(data=>{
         if(data.accessToken){
